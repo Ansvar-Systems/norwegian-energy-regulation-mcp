@@ -1,0 +1,93 @@
+# sources.yml -- Data provenance metadata
+# Reference: docs/mcp-infrastructure-blueprint.md
+
+schema_version: "1.0"
+mcp_name: "Norwegian Energy Regulation MCP"
+category: "domain_intelligence"
+jurisdiction: "Norway"
+
+sources:
+  - name: "NVE (Norges vassdrags- og energidirektorat)"
+    authority: "NVE"
+    official_url: "https://nve.no"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Norwegian Open Government Licence (NLOD)"
+      url: "https://data.norge.no/nlod/en/2.0"
+      summary: "Norwegian government publications are freely available under NLOD"
+    coverage:
+      scope: "Lover, forskrifter, veiledninger for energi- og vassdrags­sektoren"
+      item_count: 0
+    languages:
+      - "no"
+
+  - name: "RME (Reguleringsmyndigheten for energi)"
+    authority: "RME"
+    official_url: "https://nve.no/reguleringsmyndigheten"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Norwegian Open Government Licence (NLOD)"
+      url: "https://data.norge.no/nlod/en/2.0"
+      summary: "Norwegian regulatory decisions are public records"
+    coverage:
+      scope: "Tariff decisions, revenue caps, network tariff methodology, market supervision"
+      item_count: 0
+    languages:
+      - "no"
+
+  - name: "Statnett SF (Norwegian TSO)"
+    authority: "Statnett"
+    official_url: "https://statnett.no"
+    retrieval_method: "MANUAL_CURATION"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Norwegian Open Government Licence (NLOD)"
+      url: "https://data.norge.no/nlod/en/2.0"
+      summary: "Grid codes and system operation rules are public"
+    coverage:
+      scope: "Grid codes (FOSA/FOS), balancing rules, capacity allocation, Nord Pool integration"
+      item_count: 0
+    languages:
+      - "no"
+
+  - name: "DSB (Direktoratet for samfunnssikkerhet og beredskap)"
+    authority: "DSB"
+    official_url: "https://dsb.no"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Norwegian Open Government Licence (NLOD)"
+      url: "https://data.norge.no/nlod/en/2.0"
+      summary: "Norwegian safety regulations are public records"
+    coverage:
+      scope: "Electrical safety, gas safety, installation requirements, preparedness"
+      item_count: 0
+    languages:
+      - "no"
+
+  - name: "Lovdata"
+    authority: "Lovdata"
+    official_url: "https://lovdata.no"
+    retrieval_method: "MANUAL_CURATION"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "quarterly"
+    license:
+      type: "Norwegian Open Government Licence (NLOD)"
+      url: "https://data.norge.no/nlod/en/2.0"
+      summary: "Norwegian legislation is freely available via Lovdata"
+    coverage:
+      scope: "Energiloven, forskrifter, lovendringer"
+      item_count: 0
+    languages:
+      - "no"
