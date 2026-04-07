@@ -33,6 +33,7 @@ import {
   getRecordCounts,
   getRegulationCountByRegulator,
 } from "./db.js";
+import { buildCitation } from "./citation.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -327,7 +328,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         if (!regulation) {
           return errorContent(`Regulation not found: ${parsed.reference}`);
         }
-        return textContent(regulation);
+        const r = regulation as Record<string, unknown>;
+        return textContent({
+          ...r,
+          _citation: buildCitation(
+            String(r.reference ?? parsed.reference),
+            String(r.title ?? r.reference ?? parsed.reference),
+            "no_energy_get_regulation",
+            { reference: parsed.reference },
+          ),
+        });
       }
 
       case "no_energy_search_grid_codes": {
@@ -346,7 +356,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         if (!code) {
           return errorContent(`Grid code not found: ID ${parsed.document_id}`);
         }
-        return textContent(code);
+        const c = code as Record<string, unknown>;
+        return textContent({
+          ...c,
+          _citation: buildCitation(
+            String(c.reference ?? c.title ?? `grid-code-${parsed.document_id}`),
+            String(c.title ?? `Grid Code ${parsed.document_id}`),
+            "no_energy_get_grid_code",
+            { document_id: String(parsed.document_id) },
+          ),
+        });
       }
 
       case "no_energy_search_decisions": {
